@@ -12,32 +12,28 @@
 
 ## 🎨 模板预览
 
-### 极简黑白灰 `default`
-![极简黑白灰](examples/default.png)
-
-### 红色标题极简 `red-minimal`
-![红色标题极简](examples/red-minimal.png)
-
-### 暖色文艺 `warm-literary`
-![暖色文艺](examples/warm-literary.png)
-
-### 暗黑高级 `dark-elegant`
-![暗黑高级](examples/dark-elegant.png)
-
-### 蓝色科技 `tech-blue`
-![蓝色科技](examples/tech-blue.png)
-
-### 清新绿色 `fresh-green`
-![清新绿色](examples/fresh-green.png)
-
-### 商务灰 `business-gray`
-![商务灰](examples/business-gray.png)
-
-### 紫色创意 `purple-creative`
-![紫色创意](examples/purple-creative.png)
-
-### 报刊 editorial `newspaper`
-![报刊editorial](examples/newspaper.png)
+<table>
+<tr>
+<td align="center"><b>极简黑白灰</b><br><code>-t default</code><br><img src="examples/default.png" width="400"></td>
+<td align="center"><b>红色标题极简</b><br><code>-t red-minimal</code><br><img src="examples/red-minimal.png" width="400"></td>
+</tr>
+<tr>
+<td align="center"><b>暖色文艺</b><br><code>-t warm-literary</code><br><img src="examples/warm-literary.png" width="400"></td>
+<td align="center"><b>暗黑高级</b><br><code>-t dark-elegant</code><br><img src="examples/dark-elegant.png" width="400"></td>
+</tr>
+<tr>
+<td align="center"><b>蓝色科技</b><br><code>-t tech-blue</code><br><img src="examples/tech-blue.png" width="400"></td>
+<td align="center"><b>清新绿色</b><br><code>-t fresh-green</code><br><img src="examples/fresh-green.png" width="400"></td>
+</tr>
+<tr>
+<td align="center"><b>商务灰</b><br><code>-t business-gray</code><br><img src="examples/business-gray.png" width="400"></td>
+<td align="center"><b>紫色创意</b><br><code>-t purple-creative</code><br><img src="examples/purple-creative.png" width="400"></td>
+</tr>
+<tr>
+<td align="center"><b>报刊 editorial</b><br><code>-t newspaper</code><br><img src="examples/newspaper.png" width="400"></td>
+<td></td>
+</tr>
+</table>
 
 ## 🚀 快速开始
 
@@ -103,24 +99,13 @@ echo "Hello World"
 
 ```
 wechat-publisher/
-├── SKILL.md                  # Hermes Skill 配置
 ├── scripts/
 │   ├── format_wechat.py      # 排版引擎
 │   ├── publish.py            # 发布脚本
 │   └── config.json           # 凭证配置（git忽略）
-├── templates/
-│   ├── default.json          # 极简黑白灰
-│   ├── red-minimal.json      # 红色标题极简
-│   ├── warm-literary.json    # 暖色文艺
-│   ├── dark-elegant.json     # 暗黑高级
-│   ├── tech-blue.json        # 蓝色科技
-│   ├── fresh-green.json      # 清新绿色
-│   ├── business-gray.json    # 商务灰
-│   ├── purple-creative.json  # 紫色创意
-│   └── newspaper.json        # 报刊editorial
+├── templates/                # 9套排版模板
 ├── examples/                 # 模板效果截图
-├── references/
-│   └── setup_guide.md        # 配置指南
+├── references/               # 配置指南
 └── output/                   # 生成文件（git忽略）
 ```
 
