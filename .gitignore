@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Token & secrets
+token_cache.json
+config.json
+
+# Output
+output/*.html
+output/*.md
+output/*.jpg
+output/*.png
+output/cover_*.jpg
+output/cover_*.png
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
