@@ -1,0 +1,22 @@
+[
+  {
+    "prompt": "A Chinese content creator sitting at a messy desk with a laptop open to a blog editor, surrounded by scattered papers, coffee cups, and design guides, looking frustrated and tired, warm desk lamp lighting, soft bokeh background, editorial photography style, no text, no watermark",
+    "output": "C:/Users/FHY/.hermes/skills/productivity/wechat-publisher/output/article-images/img01-writing.jpg",
+    "size": "1536x1024"
+  },
+  {
+    "prompt": "Minimalist flat illustration of a seamless automated workflow: a markdown text document transforming into a beautifully formatted article page, then flowing into a publishing cloud icon, clean tech style, blue and white color palette, geometric shapes, no text labels, suitable for tech blog",
+    "output": "C:/Users/FHY/.hermes/skills/productivity/wechat-publisher/output/article-images/img03-automation.jpg",
+    "size": "1536x1024"
+  },
+  {
+    "prompt": "A sleek modern code editor interface on a laptop screen showing markdown syntax with syntax highlighting, dark theme with subtle blue glow, close-up shot of the screen, soft ambient lighting, tech aesthetic, no readable text, bokeh background",
+    "output": "C:/Users/FHY/.hermes/skills/productivity/wechat-publisher/output/article-images/img04-code.jpg",
+    "size": "1536x1024"
+  },
+  {
+    "prompt": "A modern bright co-working space with multiple monitors showing article publishing dashboards, two people discussing content strategy over coffee, natural daylight from large windows, editorial photography style, warm and productive atmosphere, no text",
+    "output": "C:/Users/FHY/.hermes/skills/productivity/wechat-publisher/output/article-images/img05-team.jpg",
+    "size": "1536x1024"
+  }
+]

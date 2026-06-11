@@ -29,8 +29,16 @@ publish.py（wechatpy → 公众号草稿/发布）
 │   ├── pipeline.py           # 主控脚本：串联全流程
 │   └── config.json           # 凭证配置（appid/appsecret等）
 ├── templates/
-│   ├── default.json          # 默认排版模板（蓝色调科技风）
-│   └── minimal.json          # 极简模板（衬线字体散文风）
+│   ├── default.json          # 极简黑白灰（底部横线标题，用户首选）
+│   ├── red-minimal.json      # 红色标题极简（左侧竖线）
+│   ├── warm-literary.json    # 暖色文艺（衬线字体）
+│   ├── dark-elegant.json     # 暗黑高级（深色背景）
+│   ├── tech-blue.json        # 蓝色科技
+│   ├── fresh-green.json      # 清新绿色
+│   ├── business-gray.json    # 商务灰
+│   ├── purple-creative.json  # 紫色创意
+│   └── newspaper.json        # 报刊editorial
+├── examples/                 # 模板效果截图（9张）
 ├── references/
 │   ├── setup_guide.md        # 首次配置指南（凭证、白名单、权限）
 │   ├── template_guide.md     # 模板自定义指南
@@ -108,7 +116,7 @@ default.json 已按用户偏好定制为极简风格，核心参数：
 - **加粗** 无背景色，纯文字加粗（strong 背景 transparent）
 - **强调高亮** 用 `==文字==` 语法，渲染为 `background: #e9e8e8` 的 span（不用加粗）
 - **代码块** 浅灰背景 #f5f5f5，非深色主题
-- **标题** 左对齐，无居中。H2 左侧 4px 黑色竖线装饰，H3 无装饰
+- **标题** 左对齐，无居中。H2 底部 1px 横线 `#cccccc`，H1 底部 2px 横线 `#333333`，H3 无装饰线。其他模板（red-minimal 等）用左侧竖线装饰
 - 标题层级：H1 20px / H2 18px / H3 16px
 - **正文不放标题** 文章正文区不插入居中大标题，直接从内容开始
 
@@ -137,6 +145,61 @@ default.json 已按用户偏好定制为极简风格，核心参数：
 ### 不输出标题
 调用 `format_wechat.py` 时不传 `--title`，文章直接从正文开始，不会在顶部渲染居中标题。
 
+### 文章配图
+写长文时，每隔 2-3 段插入一张配图，保持视觉节奏。图片来源：
+
+1. **AI 生图（推荐）**：调用 GPT Image 2 API（via Grsai）生成上下文相关的配图
+2. **模板截图**：用 `examples/` 目录下的模板效果截图展示模板外观
+3. **网络图片**：从 Unsplash/Pexels 下载相关图片（备选）
+
+#### AI 配图工具
+
+项目内置 `scripts/generate_images.py`，支持两种模式：
+
+**模式一：配置文件批量生成**
+
+创建 JSON 配置文件：
+```json
+[
+  {
+    "prompt": "图片描述（英文效果更好）",
+    "output": "output/article-images/img01.jpg",
+    "size": "1536x1024"
+  }
+]
+```
+
+运行：
+```bash
+python scripts/generate_images.py config.json --api-key sk-xxx
+```
+
+**模式二：从 Markdown 自动提取**
+
+```bash
+python scripts/generate_images.py article.md --from-markdown --output-dir output/article-images/
+```
+
+脚本会扫描 Markdown 中所有 `![alt](path)` 引用，用 alt text 作为提示词生成图片。
+
+**API Key 配置**：优先使用 `--api-key` 参数，其次读取 `GRSAI_API_KEY` 环境变量，最后从 `scripts/gen_cover.py` 中的 `API_KEY` 变量读取。
+
+**配图原则**：
+- 概念性插图用 AI 生成（写作场景、流程示意、技术氛围等）
+- 模板展示用 `examples/` 下的真实截图
+- 图片描述尽量具体，包含风格、色调、构图等细节
+- 公众号配图推荐尺寸：`1536x1024`（16:10 横图）
+
+**图片路径注意**：Markdown 中的图片路径必须是**绝对路径**，否则 `publish.py` 找不到图片文件。相对路径会导致图片被跳过（⚠️ 图片不存在）。
+
+```markdown
+<!-- 正确：绝对路径 -->
+![配图](C:/Users/FHY/.hermes/skills/productivity/wechat-publisher/output/article-images/img01.jpg)
+
+<!-- 错误：相对路径（会被跳过） -->
+![配图](article-images/img01.jpg)
+```
+
 ## markdown2 兼容性 Pitfalls
 
 - **codehilite div**：markdown2 的 `fenced-code-blocks` + `code-friendly` extras 会生成 `<div class="codehilite">` 而非 `<pre><code>`。`format_wechat.py` 已内置转换逻辑，将 codehilite div 提取内容后转为单个 `<pre>` 标签。
@@ -162,9 +225,38 @@ default.json 已按用户偏好定制为极简风格，核心参数：
 
 GitHub: https://github.com/fhy2515127077/wechat-publisher (MIT)
 
+### GitHub README 布局偏好
+用户要求模板截图用 **双排网格布局**（HTML table），不要竖着一张张排列。README 中用 `<table><tr><td>` 结构，每行放 2 张截图，宽度 400px。
+
 ## Pitfalls
 
 `wechat-mp-publish` 是本 skill 的早期版本，侧重 API 代码示例。本 skill（wechat-publisher）已包含完整的排版引擎、模板系统和发布脚本，是当前主力 skill。如需合并，请将 wechat-mp-publish 中的 wechatpy API 细节（access_token 刷新、素材上传、freepublish 异步轮询）迁移到本 skill 的 references/ 下后删除旧 skill。
+
+## 模板设计规范
+
+新建模板时遵循以下规范：
+
+### 标题样式
+- **default 模板**：底部横线（border-bottom），无左侧竖线
+- **其他模板**：左侧 4px 竖线（border-left），无底部横线
+- H3 一般无装饰线，仅加粗
+
+### 引用块
+- 左侧 4px 彩色竖线 + 浅色背景 + 右侧圆角 `0 8px 8px 0`
+- margin: 20px 0，padding: 16px 20px
+
+### 代码块
+- 浅灰/浅色背景 + 顶部 3px 装饰线（颜色跟随主题） + 圆角 8px
+- **必须用单个 `<pre>` 标签**，不要嵌套 `<code>`，否则微信编辑器崩溃
+
+### Emphasis 强调
+- 每个模板必须定义 `emphasis` 字段：`{"background": "...", "padding": "2px 6px", "color": ""}`
+- 背景色需与模板主色调协调，暗色背景用深灰底+亮色字
+
+### 间距
+- 段后距 24px（margin: 0 0 24px 0）
+- 图片 margin: 20px 0，border-radius: 8px
+- 标题 margin-top: 32-36px
 
 ## 排版调试流程
 
@@ -180,7 +272,7 @@ GitHub: https://github.com/fhy2515127077/wechat-publisher (MIT)
 - **标题重复**：如果 Markdown 文件里有 H1 标题，又通过 `--title` 传了标题，排版时会自动移除 Markdown 中的第一个 H1 避免重复。这是 `format_wechat.py` 的内置行为。
 - **封面图必须有**：发布接口要求 `thumb_media_id`，没有封面图会报错。可先用 `--draft` 存草稿，后台手动加封面后再发布。
 - **订阅号权限不足**：未认证的订阅号没有草稿/发布 API 权限，会返回 errcode 48001。需升级为认证服务号或确认已开通接口权限。
-- **标题装饰层级**：用户要求 H2（章节标题）有左侧竖线装饰，H3（小标题）无装饰。修改模板时注意 H3 的 `border_left` 应为 `"none"`，`padding` 应为 `"0"`。
+- **标题装饰层级**：default 模板的 H1/H2 用底部横线（border-bottom），H3 无装饰。其他模板（red-minimal 等）的 H1/H2 用左侧竖线（border-left）。修改模板时注意区分。
 - **强调用 == 语法不用加粗**：用户明确要求加粗（strong）不加背景色，需要高亮的句子用 `==文字==` 语法。不要用 `**文字**` 做强调高亮。
 - **正文不放标题**：用户要求文章正文区不插入居中大标题，直接从正文内容开始。排版时不传 `--title` 参数，标题在公众号后台单独设置。
 - **markdown2 codehilite 导致代码块空白**：markdown2 使用 `code-friendly` extra 时，代码块会生成 `<div class="codehilite"><p ...re><code>...</code></pre></div>` 结构，而非标准的 `<pre><code>`。WeChat 渲染器无法正确显示这种结构，导致代码块显示为空白。**已修复**：`format_wechat.py` 的 `inject_styles` 函数会先将 `codehilite` div 转换为带样式的 `<pre><code>` 块，再清理内部的 span 标签。如果未来 markdown2 版本变化导致代码块再次异常，检查生成的 HTML 中代码块的 DOM 结构。

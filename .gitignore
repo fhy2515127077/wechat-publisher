@@ -18,6 +18,7 @@ output/*.jpg
 output/*.png
 output/cover_*.jpg
 output/cover_*.png
+output/article-images/
 
 # IDE
 .vscode/
