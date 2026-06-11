@@ -28,3 +28,8 @@ output/cover_*.png
 # OS
 .DS_Store
 Thumbs.db
+
+# Secrets
+scripts/.apikey
+scripts/.wc_secret
+output/cover_request.json
