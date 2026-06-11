@@ -1,6 +1,6 @@
 {
     "name": "暗黑高级",
-    "description": "深色背景、金色点缀、高端科技感，适合产品发布或深度分析",
+    "description": "深色背景、金色左侧竖线标题、极客科技感",
     "body": {
         "max_width": "100%",
         "font_size": "15px",
@@ -37,24 +37,24 @@
         "font_size": "20px",
         "font_weight": "bold",
         "color": "#d4a843",
-        "margin": "32px 0 16px 0",
-        "padding_bottom": "8px",
-        "border_bottom": "1px solid #333333",
+        "margin": "36px 0 16px 0",
+        "padding": "0 0 0 12px",
+        "border_left": "4px solid #d4a843",
         "text_align": "left"
     },
     "h2": {
         "font_size": "18px",
         "font_weight": "bold",
         "color": "#d4a843",
-        "margin": "28px 0 14px 0",
-        "padding_bottom": "6px",
-        "border_bottom": "1px solid #333333",
+        "margin": "32px 0 14px 0",
+        "padding": "0 0 0 12px",
+        "border_left": "4px solid #d4a843",
         "text_align": "left"
     },
     "h3": {
         "font_size": "16px",
         "font_weight": "bold",
-        "color": "#d4a843",
+        "color": "#f0c040",
         "margin": "24px 0 12px 0",
         "text_align": "left"
     },
@@ -79,14 +79,14 @@
         "text-decoration": "none"
     },
     "blockquote": {
-        "border_left": "3px solid #d4a843",
-        "padding": "12px 16px",
-        "background": "#2a2a2a",
+        "border_left": "4px solid #d4a843",
+        "padding": "16px 20px",
+        "background": "#252525",
         "color": "#cccccc",
-        "margin": "16px 0",
+        "margin": "20px 0",
         "font_size": "15px",
         "line_height": "1.6",
-        "border_radius": "4px"
+        "border_radius": "0 8px 8px 0"
     },
     "code_inline": {
         "background": "#2a2a2a",
@@ -97,20 +97,20 @@
         "font_family": "Consolas, Monaco, 'Courier New', monospace"
     },
     "code_block": {
-        "background": "#2a2a2a",
+        "background": "#252525",
         "color": "#e0e0e0",
         "padding": "16px",
-        "border_radius": "4px",
+        "border_radius": "8px",
         "font_size": "13px",
         "line_height": "1.6",
-        "margin": "16px 0",
+        "margin": "20px 0",
         "font_family": "Consolas, Monaco, 'Courier New', monospace",
         "white_space": "pre-wrap",
         "word_break": "break-all",
         "border_top": "3px solid #d4a843"
     },
     "pre": {
-        "margin": "16px 0",
+        "margin": "20px 0",
         "padding": "0"
     },
     "img": {
@@ -133,7 +133,7 @@
         "margin": "12px 0"
     },
     "li": {
-        "margin": "6px 0",
+        "margin": "8px 0",
         "line_height": "1.6"
     },
     "table": {
@@ -143,16 +143,21 @@
         "font_size": "14px"
     },
     "th": {
-        "background": "#2a2a2a",
+        "background": "#252525",
         "border": "1px solid #444444",
-        "padding": "8px 12px",
+        "padding": "10px 14px",
         "font_weight": "bold",
         "text_align": "left",
         "color": "#d4a843"
     },
     "td": {
         "border": "1px solid #444444",
-        "padding": "8px 12px"
+        "padding": "10px 14px"
+    },
+    "emphasis": {
+        "background": "#333333",
+        "padding": "2px 6px",
+        "color": "#d4a843"
     },
     "footer": {
         "text_align": "center",
@@ -162,10 +167,5 @@
         "font_size": "14px",
         "color": "#666666",
         "line_height": "1.6"
-    },
-    "emphasis": {
-        "background": "#333333",
-        "padding": "2px 4px",
-        "color": "#d4a843"
     }
 }

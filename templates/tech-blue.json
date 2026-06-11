@@ -37,19 +37,23 @@
         "font_size": "20px",
         "font_weight": "bold",
         "color": "#1e90ff",
-        "margin": "32px 0 16px 0",
-        "padding_bottom": "8px",
-        "border_bottom": "2px solid #1e90ff",
-        "text_align": "left"
+        "margin": "36px 0 16px 0",
+        "padding_bottom": "0",
+        "border_bottom": "none",
+        "text_align": "left",
+        "padding": "0 0 0 12px",
+        "border_left": "4px solid #1e90ff"
     },
     "h2": {
         "font_size": "18px",
         "font_weight": "bold",
         "color": "#1e90ff",
-        "margin": "28px 0 14px 0",
-        "padding_bottom": "6px",
-        "border_bottom": "1px solid #e0e8f0",
-        "text_align": "left"
+        "margin": "32px 0 14px 0",
+        "padding_bottom": "0",
+        "border_bottom": "none",
+        "text_align": "left",
+        "padding": "0 0 0 12px",
+        "border_left": "4px solid #1e90ff"
     },
     "h3": {
         "font_size": "16px",
@@ -79,14 +83,14 @@
         "text-decoration": "none"
     },
     "blockquote": {
-        "border_left": "3px solid #1e90ff",
-        "padding": "12px 16px",
+        "border_left": "4px solid #1e90ff",
+        "padding": "16px 20px",
         "background": "#f0f7ff",
         "color": "#666666",
-        "margin": "16px 0",
+        "margin": "20px 0",
         "font_size": "15px",
         "line_height": "1.6",
-        "border_radius": "4px"
+        "border_radius": "0 8px 8px 0"
     },
     "code_inline": {
         "background": "#f0f7ff",
@@ -100,17 +104,17 @@
         "background": "#f5f8fc",
         "color": "#333333",
         "padding": "16px",
-        "border_radius": "4px",
+        "border_radius": "8px",
         "font_size": "13px",
         "line_height": "1.6",
-        "margin": "16px 0",
+        "margin": "20px 0",
         "font_family": "Consolas, Monaco, 'Courier New', monospace",
         "white_space": "pre-wrap",
         "word_break": "break-all",
         "border_top": "3px solid #1e90ff"
     },
     "pre": {
-        "margin": "16px 0",
+        "margin": "20px 0",
         "padding": "0"
     },
     "img": {
@@ -133,7 +137,7 @@
         "margin": "12px 0"
     },
     "li": {
-        "margin": "6px 0",
+        "margin": "8px 0",
         "line_height": "1.6"
     },
     "table": {
@@ -156,7 +160,7 @@
     },
     "emphasis": {
         "background": "#e8f4fd",
-        "padding": "2px 4px",
+        "padding": "2px 6px",
         "color": ""
     },
     "footer": {
