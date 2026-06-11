@@ -1,6 +1,6 @@
 {
     "name": "极简黑白灰",
-    "description": "黑白灰极简风，左侧竖线标题，干净利落",
+    "description": "黑白灰极简风，底部横线标题，干净利落",
     "body": {
         "max_width": "100%",
         "font_size": "15px",
@@ -38,8 +38,8 @@
         "font_weight": "bold",
         "color": "#1a1a1a",
         "margin": "36px 0 16px 0",
-        "padding": "0 0 0 12px",
-        "border_left": "4px solid #333333",
+        "padding_bottom": "8px",
+        "border_bottom": "2px solid #333333",
         "text_align": "left"
     },
     "h2": {
@@ -47,8 +47,8 @@
         "font_weight": "bold",
         "color": "#1a1a1a",
         "margin": "32px 0 14px 0",
-        "padding": "0 0 0 12px",
-        "border_left": "4px solid #333333",
+        "padding_bottom": "6px",
+        "border_bottom": "1px solid #cccccc",
         "text_align": "left"
     },
     "h3": {

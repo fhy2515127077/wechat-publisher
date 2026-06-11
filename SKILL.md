@@ -108,7 +108,7 @@ default.json 已按用户偏好定制为极简风格，核心参数：
 - **加粗** 无背景色，纯文字加粗（strong 背景 transparent）
 - **强调高亮** 用 `==文字==` 语法，渲染为 `background: #e9e8e8` 的 span（不用加粗）
 - **代码块** 浅灰背景 #f5f5f5，非深色主题
-- **标题** 左对齐，无居中。H2 有 1px #cccccc 底线装饰，H3 无底线
+- **标题** 左对齐，无居中。H2 左侧 4px 黑色竖线装饰，H3 无装饰
 - 标题层级：H1 20px / H2 18px / H3 16px
 - **正文不放标题** 文章正文区不插入居中大标题，直接从内容开始
 
@@ -180,7 +180,7 @@ GitHub: https://github.com/fhy2515127077/wechat-publisher (MIT)
 - **标题重复**：如果 Markdown 文件里有 H1 标题，又通过 `--title` 传了标题，排版时会自动移除 Markdown 中的第一个 H1 避免重复。这是 `format_wechat.py` 的内置行为。
 - **封面图必须有**：发布接口要求 `thumb_media_id`，没有封面图会报错。可先用 `--draft` 存草稿，后台手动加封面后再发布。
 - **订阅号权限不足**：未认证的订阅号没有草稿/发布 API 权限，会返回 errcode 48001。需升级为认证服务号或确认已开通接口权限。
-- **标题底线层级**：用户要求只有 H2（大标题/章节标题）有底线装饰，H3（小标题）不要底线。修改模板时注意 H3 的 `border_bottom` 应为 `"none"`。
+- **标题装饰层级**：用户要求 H2（章节标题）有左侧竖线装饰，H3（小标题）无装饰。修改模板时注意 H3 的 `border_left` 应为 `"none"`，`padding` 应为 `"0"`。
 - **强调用 == 语法不用加粗**：用户明确要求加粗（strong）不加背景色，需要高亮的句子用 `==文字==` 语法。不要用 `**文字**` 做强调高亮。
 - **正文不放标题**：用户要求文章正文区不插入居中大标题，直接从正文内容开始。排版时不传 `--title` 参数，标题在公众号后台单独设置。
 - **markdown2 codehilite 导致代码块空白**：markdown2 使用 `code-friendly` extra 时，代码块会生成 `<div class="codehilite"><p ...re><code>...</code></pre></div>` 结构，而非标准的 `<pre><code>`。WeChat 渲染器无法正确显示这种结构，导致代码块显示为空白。**已修复**：`format_wechat.py` 的 `inject_styles` 函数会先将 `codehilite` div 转换为带样式的 `<pre><code>` 块，再清理内部的 span 标签。如果未来 markdown2 版本变化导致代码块再次异常，检查生成的 HTML 中代码块的 DOM 结构。
