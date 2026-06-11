@@ -112,7 +112,18 @@ default.json 已按用户偏好定制为极简风格，核心参数：
 ## 排版语法扩展
 
 ### ==强调== 语法
-在 Markdown 中用 `==文字==` 标记需要高亮的句子，排版后会渲染为 `#e9e8e8` 灰色背景，不加粗。适合标记文章核心观点。
+在 Markdown 中用 `==文字==` 标记需要高亮的句子，排版后渲染为带背景色的 span，不加粗。**背景色和文字颜色跟随模板自动适配**（通过模板 JSON 中的 `emphasis` 字段配置）。
+
+各模板默认强调色：
+- default / red-minimal：浅灰底 `#e9e8e8`
+- warm-literary：暖棕底 `#f5e6d0` + 棕色字
+- dark-elegant：深灰底 `#333333` + 金色字 `#d4a843`
+
+模板中添加 `emphasis` 字段即可自定义：
+```json
+"emphasis": {"background": "#e9e8e8", "padding": "2px 4px", "color": ""}
+```
+`color` 为空则不设置文字颜色，继承正文色。
 
 ```markdown
 ==这是一句需要强调的话==
@@ -141,6 +152,10 @@ default.json 已按用户偏好定制为极简风格，核心参数：
 - 微信编辑器支持的 CSS 属性
 - markdown2 输出的 HTML 结构
 - 微信文章图片规则
+
+## 开源仓库
+
+GitHub: https://github.com/fhy2515127077/wechat-publisher (MIT)
 
 ## Pitfalls
 
